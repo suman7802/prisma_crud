@@ -5,7 +5,6 @@ export const user = {
   create: async (req: Request, res: Response) => {
     const name = req.body.name;
     const address = req.body.address;
-
     await prisma.user
       .create({
         data: {
@@ -14,11 +13,9 @@ export const user = {
         },
       })
       .then((response) => {
-        console.log(response);
         return res.send(response);
       })
       .catch((error) => {
-        console.error(error);
         return res.send(error);
       });
   },
@@ -27,11 +24,9 @@ export const user = {
     await prisma.user
       .findMany()
       .then((response) => {
-        console.log(response);
         return res.send(response);
       })
       .catch((error) => {
-        console.error(error);
         return res.send(error);
       });
   },
@@ -47,11 +42,9 @@ export const user = {
         data: {name: name, address: address},
       })
       .then((response) => {
-        console.log(response);
         return res.send(response);
       })
       .catch((error) => {
-        console.error(error);
         return res.send(error);
       });
   },
@@ -64,11 +57,9 @@ export const user = {
         where: {id: id},
       })
       .then((response) => {
-        console.log(response);
         return res.send(response);
       })
       .catch((error) => {
-        console.error(error);
         return res.send(error);
       });
   },
