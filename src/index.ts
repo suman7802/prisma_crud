@@ -1,11 +1,13 @@
 require('dotenv').config();
 import express from 'express';
+import helmet from 'helmet';
 import * as parser from 'body-parser';
 import {crudRouter} from './routes/crudRouter';
 
 const app = express();
 const port = process.env.PORT;
 
+app.use(helmet());
 app.use(express.json());
 app.use(parser.urlencoded({extended: true}));
 
